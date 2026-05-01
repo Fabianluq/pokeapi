@@ -22,11 +22,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.pokeapi.domain.model.Pokemon
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-
     onNavigateToDetail: (Int) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
@@ -40,7 +38,6 @@ fun HomeScreen(
         }
     }
 
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -49,7 +46,6 @@ fun HomeScreen(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 )
-
             )
         }
     ) { paddingValues ->
@@ -145,7 +141,6 @@ fun HomeScreen(
                         item {
                             CircularProgressIndicator(modifier = Modifier.padding(16.dp))
                         }
-
                     }
                 }
             }
@@ -157,7 +152,6 @@ fun HomeScreen(
 fun PokemonItem(pokemon: Pokemon, onClick: () -> Unit) {
     Card(
         modifier = Modifier
-
             .fillMaxWidth()
             .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -180,4 +174,3 @@ fun PokemonItem(pokemon: Pokemon, onClick: () -> Unit) {
         }
     }
 }
-

@@ -1,13 +1,11 @@
 package com.example.pokeapi.ui.detail
 
 import androidx.lifecycle.SavedStateHandle
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokeapi.domain.model.PokemonDetail
 import com.example.pokeapi.domain.repository.PokemonRepository
 import com.example.pokeapi.util.NetworkConnectivityObserver
-
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,7 +31,6 @@ class DetailViewModel @Inject constructor(
             connectivityObserver.observe().collect { status ->
                 _uiState.value = _uiState.value.copy(
                     isOnline = status == NetworkConnectivityObserver.Status.Available
-
                 )
             }
         }
@@ -57,5 +54,4 @@ data class DetailUiState(
     val isLoading: Boolean = false,
     val errorMessage: String? = null,
     val isOnline: Boolean = true
-
 )

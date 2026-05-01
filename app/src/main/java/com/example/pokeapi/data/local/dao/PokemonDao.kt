@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-
 import com.example.pokeapi.data.local.entity.PokemonEntity
 
 @Dao
@@ -17,5 +16,4 @@ interface PokemonDao {
 
     @Query("SELECT * FROM pokemon")
     suspend fun getAllPokemon(): List<PokemonEntity>
-
 }
