@@ -1,0 +1,19 @@
+package com.example.pokeapi.data.local.dao
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.example.pokeapi.data.local.entity.PokemonEntity
+
+@Dao
+interface PokemonDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(pokemon: List<PokemonEntity>)
+
+    @Query("SELECT * FROM pokemon ORDER BY id ASC LIMIT :limit OFFSET :offset")
+    suspend fun getPokemonList(limit: Int, offset: Int): List<PokemonEntity>
+
+    @Query("SELECT * FROM pokemon")
+    suspend fun getAllPokemon(): List<PokemonEntity>
+}
