@@ -6,11 +6,13 @@ import com.example.pokeapi.domain.model.Pokemon
 import com.example.pokeapi.domain.model.PokemonType
 import com.example.pokeapi.domain.repository.PokemonRepository
 import com.example.pokeapi.util.NetworkConnectivityObserver
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
+
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -39,6 +41,7 @@ class HomeViewModel @Inject constructor(
                 val isOnline = status == NetworkConnectivityObserver.Status.Available
                 _uiState.value = _uiState.value.copy(isOnline = isOnline)
             }
+
         }
     }
 
@@ -49,6 +52,7 @@ class HomeViewModel @Inject constructor(
                 _uiState.value = _uiState.value.copy(types = types)
             } catch (e: Exception) {
                 // Ignore if offline
+
             }
         }
     }
@@ -69,6 +73,7 @@ class HomeViewModel @Inject constructor(
                 )
             } catch (e: Exception) {
                 _uiState.value = _uiState.value.copy(isLoading = false, errorMessage = e.message)
+
             }
         }
     }
@@ -98,6 +103,7 @@ class HomeViewModel @Inject constructor(
                     _uiState.value = _uiState.value.copy(isLoading = false, errorMessage = e.message)
                 }
             }
+
         }
     }
 }
@@ -118,3 +124,4 @@ data class HomeUiState(
             pokemonList.filter { it.name.contains(searchQuery, ignoreCase = true) }
         }
 }
+

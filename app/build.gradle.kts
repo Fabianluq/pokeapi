@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
     buildFeatures {
         compose = true
     }
@@ -51,6 +54,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     
+
     // Retrofit & Gson
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -67,6 +71,7 @@ dependencies {
     // Navigation & Coil
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+
     implementation(libs.coil.compose)
 
     testImplementation(libs.junit)

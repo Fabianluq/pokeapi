@@ -1,17 +1,20 @@
 package com.example.pokeapi.data.repository
 
 import com.example.pokeapi.data.local.dao.PokemonDao
+
 import com.example.pokeapi.data.local.entity.PokemonEntity
 import com.example.pokeapi.data.remote.PokeApiService
 import com.example.pokeapi.domain.model.Pokemon
 import com.example.pokeapi.domain.model.PokemonDetail
 import com.example.pokeapi.domain.model.PokemonType
 import com.example.pokeapi.domain.repository.PokemonRepository
+
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class PokemonRepositoryImpl @Inject constructor(
+
     private val apiService: PokeApiService,
     private val pokemonDao: PokemonDao
 ) : PokemonRepository {
@@ -59,6 +62,7 @@ class PokemonRepositoryImpl @Inject constructor(
         val response = apiService.getPokemonByType(typeId)
         return response.pokemon.map { 
             Pokemon(name = it.pokemon.name, url = it.pokemon.url) 
+
         }
     }
 }

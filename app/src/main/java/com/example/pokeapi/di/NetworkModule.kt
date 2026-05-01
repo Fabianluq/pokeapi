@@ -1,6 +1,7 @@
 package com.example.pokeapi.di
 
 import com.example.pokeapi.data.remote.PokeApiService
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +27,6 @@ object NetworkModule {
     @Singleton
     fun providePokeApiService(retrofit: Retrofit): PokeApiService {
         return retrofit.create(PokeApiService::class.java)
+
     }
 }
